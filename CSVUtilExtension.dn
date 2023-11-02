@@ -22,7 +22,16 @@ stats.StatCore sc {
      * Add a column to a CSV file.
      */
     bool CSVUtilExtension:addColumn(char filename[], bool hasHeaderLine, char separators[], Data wrappedColumn[],
-                                    opt char columnName[] = "NewColumn", opt int columnNumber, opt bool limitData = true) {
+                                    opt char columnName[], opt int columnNumber, opt bool limitData) {
+
+        if (!(isset columnName)) {
+            columnName = "NewColumn"
+            }
+
+        if (!(isset limitData)) {
+            limitData = true
+            }
+
         // Infer the types of the columns in the CSV file and build the data template type.
         Type templateType = inferCSVTemplate(filename)
 
@@ -168,7 +177,12 @@ stats.StatCore sc {
      * Add a row to a CSV file.
      */
     bool CSVUtilExtension:addRow(char filename[], bool hasHeaderLine, char separators[], Data wrappedRow,
-                                 opt int rowNumber, opt bool limitData = true) {
+                                 opt int rowNumber, opt bool limitData) {
+
+        if (!(isset limitData)) {
+            limitData = true
+            }
+
         // Infer the types of the columns in the CSV file and build the data template type.
         Type templateType = inferCSVTemplate(filename)
 

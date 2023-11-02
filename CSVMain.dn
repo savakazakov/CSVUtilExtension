@@ -19,7 +19,7 @@ CSVUtilExtension cue, io.File, util.Math math, io.TextFile, stats.StatCore sc {
         // cue.addColumn("test.csv", true, ",", cue.wrapDecArray(new dec512[](newDecColumn), 8),
         //               columnName = "NewColumnDec8"/* , columnNumber = 3 */, limitData = false)
 
-        Data newRow = new Data("New_Date", 101000, 101000, 101, 102, 103, 103.0, 104, 105, 106, 107, 108, 109, 101000, 1.1, "New_Str")
+        Data newRow = new Data(/* "New_Date", 101000, 101000, 101, 102, 103, 103.0, 104, 105, 106, 107, 108, 109, 101000, 1.1, "New_Str" */)
                       from cue.inferCSVTemplate("test.csv")
 
         newRow:.0 = "New_Date"
